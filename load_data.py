@@ -65,3 +65,43 @@ def load_homeless_demographic():
     
     return hl_demographic
 
+def load_time_series_data():
+    workbook = openpyxl.load_workbook('Data/all_in_one_Time_sieries_data.xlsx')
+    time_series_data = pd.DataFrame(workbook['Usable'].values)
+    time_series_data.columns = list(time_series_data.iloc[0])
+    time_series_data = time_series_data.drop(labels=0, axis=0)
+    afforable_started = time_series_data['Number_of_afforable_houses_started']
+    afforable_completed = time_series_data['Number_of_afforable_houses_completed']
+    total_started = time_series_data['Total_house_construction_started']
+    total_completed = time_series_data['Total_housing_completed']
+    timed_waiting_list_size = time_series_data['Size_of_waiting_list']
+    timed_median_afforability_ratio = time_series_data['Median_House_price_and_earning_ratio']
+    timed_lower_quatile_afforability_ratio = time_series_data['Lower_quatile_House_price_and_earning_ratio']
+    
+    return time_series_data,afforable_started,afforable_completed,total_started,total_completed,total_started,total_completed,timed_waiting_list_size,timed_median_afforability_ratio,timed_lower_quatile_afforability_ratio
+
+def load_categorical_data():
+    workbook = openpyxl.load_workbook('Data/all_in_one_Categorical_data_processed.xlsx')
+    categorical_data = pd.DataFrame(workbook['removed_unwanted_cells'].values)
+    categorical_data.columns = list(categorical_data.iloc[0])
+    categorical_data = categorical_data.drop(labels=0, axis=0)
+
+    prevention_duty_owed = categorical_data['Threatened with homelessness within 56 days-Prevention duty owed']
+    relief_duty_owed = categorical_data['Homeless_Relief_duty_owed4']
+    support_need_homeless = categorical_data['Total households with support needs']
+    no_longer_homeless = categorical_data['Total secured accommodation']
+    homeless_real_value = categorical_data['Homeless (including intentionally homeless)']
+    categorical_waiting_list_size = categorical_data['Size_of_social_housing_waiting_list_2021']
+    social_housing_lettings_2021 = categorical_data['2021 Total Lettings']
+    band_A_B_properties = categorical_data['A_B_property_counts']
+    band_C_D_properties = categorical_data['C_D_property_counts']
+    band_E_F_properties = categorical_data['E_F_property_counts']
+    band_G_H_properties = categorical_data['G_H_property_counts']
+    count_median_price_houses = categorical_data['median_houses_2020']
+    count_median_earning_gross = categorical_data['median_earning_2020']
+    categorical_median_afforability_ratio = categorical_data['ratio_by_medians_2020']
+    count_lower_quatile_price_houses = categorical_data['lower_quatile_houses_2020']
+    count_lower_quatile_earning_gross = categorical_data['lower_quatile_earning_2020']
+    categorical_lower_quatile_afforability_ratio = categorical_data['ratio_by_lower_quatile_2020']
+    
+    return categorical_data,prevention_duty_owed,relief_duty_owed,no_longer_homeless,homeless_real_value,categorical_waiting_list_size,social_housing_lettings_2021,band_A_B_properties,band_C_D_properties,band_E_F_properties,band_G_H_properties,count_median_price_houses,count_median_earning_gross,categorical_median_afforability_ratio,count_lower_quatile_price_houses,count_lower_quatile_earning_gross,categorical_lower_quatile_afforability_ratio
