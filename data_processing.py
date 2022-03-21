@@ -3,7 +3,7 @@ import sys
 import os
 import openpyxl
 
-def load_data(path,sheet ,data_extract ,model, column):
+def match_data(path,sheet ,data_extract ,model, column):
     df =pd.read_excel(path, sheet_name=sheet)
     df = df.sort_values(by='Local Authority name', key=lambda x: x.str.len())
     df = df.reset_index(drop=True)
