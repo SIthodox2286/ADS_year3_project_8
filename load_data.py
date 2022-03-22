@@ -85,9 +85,10 @@ def load_categorical_data():
     categorical_data = pd.DataFrame(workbook['removed_unwanted_cells'].values)
     categorical_data.columns = list(categorical_data.iloc[0])
     categorical_data = categorical_data.drop(labels=0, axis=0)
-
+    
+    local_authority_name = categorical_data['Local Authority name']
     prevention_duty_owed = categorical_data['Threatened with homelessness within 56 days-Prevention duty owed']
-    relief_duty_owed = categorical_data['Homeless_Relief_duty_owed4']
+    relief_duty_owed = categorical_data['Homeless - Relief duty owed4']
     support_need_homeless = categorical_data['Total households with support needs']
     no_longer_homeless = categorical_data['Total secured accommodation']
     homeless_real_value = categorical_data['Homeless (including intentionally homeless)']
@@ -104,4 +105,20 @@ def load_categorical_data():
     count_lower_quatile_earning_gross = categorical_data['lower_quatile_earning_2020']
     categorical_lower_quatile_afforability_ratio = categorical_data['ratio_by_lower_quatile_2020']
     
-    return categorical_data,prevention_duty_owed,relief_duty_owed,no_longer_homeless,homeless_real_value,categorical_waiting_list_size,social_housing_lettings_2021,band_A_B_properties,band_C_D_properties,band_E_F_properties,band_G_H_properties,count_median_price_houses,count_median_earning_gross,categorical_median_afforability_ratio,count_lower_quatile_price_houses,count_lower_quatile_earning_gross,categorical_lower_quatile_afforability_ratio
+    return categorical_data,local_authority_name,prevention_duty_owed,relief_duty_owed,support_need_homeless,no_longer_homeless,homeless_real_value,categorical_waiting_list_size,social_housing_lettings_2021,band_A_B_properties,band_C_D_properties,band_E_F_properties,band_G_H_properties,count_median_price_houses,count_median_earning_gross,categorical_median_afforability_ratio,count_lower_quatile_price_houses,count_lower_quatile_earning_gross,categorical_lower_quatile_afforability_ratio
+
+def load_categorical_more_data():
+    workbook = openpyxl.load_workbook('Data/all_in_one_Categorical_data_processed.xlsx')
+    categorical_data = pd.DataFrame(workbook['removed_unwanted_cells'].values)
+    categorical_data.columns = list(categorical_data.iloc[0])
+    categorical_data = categorical_data.drop(labels=0, axis=0)
+    
+    affordableRent_start = categorical_data['Affordable Rent (Starts on Site)']
+    social_housing_start = categorical_data['Social Rent (Starts on Site)']
+    intermediate_start = categorical_data['Intermediate Rent (Starts on Site)']
+    total_affordable_start = categorical_data['Total Affordable (Starts on Site)']
+    affordable_complete = categorical_data['Affordable Rent (Completions)']
+    social_complete = categorical_data['Social Rent (Completions)']
+    intermediate_complete = categorical_data['Intermediate Rent (Completions)']
+    total_affordable_complete = categorical_data['Total Affordable (Completions)']
+    return affordableRent_start,social_housing_start,intermediate_start,total_affordable_start,affordable_complete,social_complete,intermediate_complete,total_affordable_complete
