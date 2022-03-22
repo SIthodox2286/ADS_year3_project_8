@@ -87,8 +87,10 @@ def load_categorical_data():
     categorical_data = categorical_data.drop(labels=0, axis=0)
     
     local_authority_name = categorical_data['Local Authority name']
-    prevention_duty_owed = categorical_data['Threatened with homelessness within 56 days-Prevention duty owed']
+    total_duty_owed = categorical_data['Total owed a prevention or relief duty']
+    prevention_duty_owed = categorical_data['Threatened with homelessness within 56 days - Prevention duty owed']
     relief_duty_owed = categorical_data['Homeless - Relief duty owed4']
+    total_population_in_households = categorical_data['Number of households in area4 (000s)']
     support_need_homeless = categorical_data['Total households with support needs']
     no_longer_homeless = categorical_data['Total secured accommodation']
     homeless_real_value = categorical_data['Homeless (including intentionally homeless)']
@@ -105,7 +107,7 @@ def load_categorical_data():
     count_lower_quatile_earning_gross = categorical_data['lower_quatile_earning_2020']
     categorical_lower_quatile_afforability_ratio = categorical_data['ratio_by_lower_quatile_2020']
     
-    return categorical_data,local_authority_name,prevention_duty_owed,relief_duty_owed,support_need_homeless,no_longer_homeless,homeless_real_value,categorical_waiting_list_size,social_housing_lettings_2021,band_A_B_properties,band_C_D_properties,band_E_F_properties,band_G_H_properties,count_median_price_houses,count_median_earning_gross,categorical_median_afforability_ratio,count_lower_quatile_price_houses,count_lower_quatile_earning_gross,categorical_lower_quatile_afforability_ratio
+    return categorical_data,local_authority_name,total_duty_owed,total_population_in_households,prevention_duty_owed,relief_duty_owed,support_need_homeless,no_longer_homeless,homeless_real_value,categorical_waiting_list_size,social_housing_lettings_2021,band_A_B_properties,band_C_D_properties,band_E_F_properties,band_G_H_properties,count_median_price_houses,count_median_earning_gross,categorical_median_afforability_ratio,count_lower_quatile_price_houses,count_lower_quatile_earning_gross,categorical_lower_quatile_afforability_ratio
 
 def load_categorical_more_data():
     workbook = openpyxl.load_workbook('Data/all_in_one_Categorical_data_processed.xlsx')
