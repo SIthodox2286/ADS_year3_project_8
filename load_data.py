@@ -4,7 +4,7 @@ import openpyxl
 
 def load_council_tax_data():
     # Open the Council tax data set
-    workbook = openpyxl.load_workbook(r'Data/ENGLAND_council_tax_band_properties.xlsx')
+    workbook = openpyxl.load_workbook('Data/ENGLAND_council_tax_band_properties.xlsx')
     
     # read columns that contains the lastest property counts for all bands (2021's) and administrative area names in England.
     council_tax_band = workbook['CTSOP4.0']
@@ -52,7 +52,7 @@ def load_council_tax_data():
     return houses_above_0k, houses_above_52k, houses_above_88k, houses_above_160k
 
 def load_homeless_demographic():
-    workbook = pd.ExcelFile(r'Data/England_HomelessData_until2020.xlsx')
+    workbook = pd.ExcelFile('Data/England_HomelessData_until2020.xlsx')
     worksheet = workbook.parse(workbook.sheet_names[7])
     hl_demographic = worksheet.drop(labels=range(325,342), axis=0)
     hl_demographic = hl_demographic.drop(columns=hl_demographic.columns[range(11,60)])
@@ -66,7 +66,7 @@ def load_homeless_demographic():
     return hl_demographic
 
 def load_time_series_data():
-    workbook = openpyxl.load_workbook(r'Data/all_in_one_Time_sieries_data.xlsx')
+    workbook = openpyxl.load_workbook('Data/all_in_one_Time_sieries_data.xlsx')
     time_series_data = pd.DataFrame(workbook['Usable'].values)
     time_series_data.columns = list(time_series_data.iloc[0])
     time_series_data = time_series_data.drop(labels=0, axis=0)
@@ -90,7 +90,7 @@ def load_categorical_data():
     # How to use?
     # Step 1: from load_data import load_categorical_data
     # Step 2: categorical_data,local_authority_name,total_duty_owed,total_population_in_households,prevention_duty_owed,relief_duty_owed,support_need_homeless,no_longer_homeless,homeless_real_value,categorical_waiting_list_size,social_housing_lettings_2021,band_A_B_properties,band_C_D_properties,band_E_F_properties,band_G_H_properties,count_median_price_houses,count_median_earning_gross,categorical_median_afforability_ratio,count_lower_quatile_price_houses,count_lower_quatile_earning_gross,categorical_lower_quatile_afforability_ratio = load_categorical_data()
-    workbook = openpyxl.load_workbook(r'Data/all_in_one_Categorical_data_processed.xlsx')
+    workbook = openpyxl.load_workbook('Data/all_in_one_Categorical_data_processed.xlsx')
     categorical_data = pd.DataFrame(workbook['removed_unwanted_cells'].values)
     categorical_data.columns = list(categorical_data.iloc[0])
     categorical_data = categorical_data.drop(labels=0, axis=0)
@@ -127,7 +127,7 @@ def load_categorical_more_data():
     # Step 1: from load_data import load_categorical_more_data
     # Step 2: affordableRent_start,social_housing_start,intermediate_start,total_affordable_start,affordable_complete,social_complete,intermediate_complete,total_affordable_complete = load_categorical_more_data()
     
-    workbook = openpyxl.load_workbook(r'Data/all_in_one_Categorical_data_processed.xlsx')
+    workbook = openpyxl.load_workbook('Data/all_in_one_Categorical_data_processed.xlsx')
     categorical_data = pd.DataFrame(workbook['removed_unwanted_cells'].values)
     categorical_data.columns = list(categorical_data.iloc[0])
     categorical_data = categorical_data.drop(labels=0, axis=0)
