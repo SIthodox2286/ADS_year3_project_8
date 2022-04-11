@@ -90,25 +90,25 @@ def load_categorical_data():
     # How to use?
     # Step 1: from load_data import load_categorical_data
     # Step 2: categorical_data,local_authority_name,total_duty_owed,total_population_in_households,prevention_duty_owed,relief_duty_owed,support_need_homeless,no_longer_homeless,homeless_real_value,categorical_waiting_list_size,social_housing_lettings_2021,band_A_B_properties,band_C_D_properties,band_E_F_properties,band_G_H_properties,count_median_price_houses,count_median_earning_gross,categorical_median_afforability_ratio,count_lower_quatile_price_houses,count_lower_quatile_earning_gross,categorical_lower_quatile_afforability_ratio = load_categorical_data()
-    workbook = openpyxl.load_workbook('Data/all_in_one_Categorical_imputed.xlsx')
-    categorical_data = pd.DataFrame(workbook['Sheet1'].values)
+    workbook = openpyxl.load_workbook('Data/all_in_one_Categorical_data_processed.xlsx')
+    categorical_data = pd.DataFrame(workbook['removed_unwanted_cells'].values)
     categorical_data.columns = list(categorical_data.iloc[0])
     categorical_data = categorical_data.drop(labels=0, axis=0)
     
-    local_authority_name = categorical_data['Local_Authority_name']
-    total_duty_owed = categorical_data['Total_owed_a_prevention_or_relief_duty'] ##################################### Prevention Duty
-    prevention_duty_owed = categorical_data['Threatened_with_homelessness_within_56_days_Prevention_duty_owed'] #### Relief Duty
-    relief_duty_owed = categorical_data['Homeless_Relief_duty_owed4']
-    total_population_in_households = categorical_data['Number_of_households_in_area4(000s)']
-    support_need_homeless = categorical_data['Total_households_with_support_needs']
+    local_authority_name = categorical_data['Local Authority name']
+    total_duty_owed = categorical_data['Total owed a prevention or relief duty'] ##################################### Prevention Duty
+    prevention_duty_owed = categorical_data['Threatened with homelessness within 56 days - Prevention duty owed'] #### Relief Duty
+    relief_duty_owed = categorical_data['Homeless - Relief duty owed4']
+    total_population_in_households = categorical_data['Number of households in area4 (000s)']
+    support_need_homeless = categorical_data['Total households with support needs']
     
     ## Training target Major
-    no_longer_homeless = categorical_data['Total_secured_accommodation'] ########################################## No Longer Homeless
-    homeless_real_value = categorical_data['Homeless_(including_intentionally_homeless)']#########################_Homeless Real value
+    no_longer_homeless = categorical_data['Total secured accommodation'] ########################################## No Longer Homeless
+    homeless_real_value = categorical_data['Homeless (including intentionally homeless)'] ######################### Homeless Real value
     ## Training target Major
     
     categorical_waiting_list_size = categorical_data['Size_of_social_housing_waiting_list_2021']
-    social_housing_lettings_2021 = categorical_data['2021_Total_Lettings']
+    social_housing_lettings_2021 = categorical_data['2021 Total Lettings']
     band_A_B_properties = categorical_data['A_B_property_counts']
     band_C_D_properties = categorical_data['C_D_property_counts']
     band_E_F_properties = categorical_data['E_F_property_counts']
@@ -122,22 +122,22 @@ def load_categorical_data():
     
     return categorical_data,local_authority_name,total_duty_owed,total_population_in_households,prevention_duty_owed,relief_duty_owed,support_need_homeless,no_longer_homeless,homeless_real_value,categorical_waiting_list_size,social_housing_lettings_2021,band_A_B_properties,band_C_D_properties,band_E_F_properties,band_G_H_properties,count_median_price_houses,count_median_earning_gross,categorical_median_afforability_ratio,count_lower_quatile_price_houses,count_lower_quatile_earning_gross,categorical_lower_quatile_afforability_ratio
 
-#def load_categorical_more_data():
+def load_categorical_more_data():
     # How to use?
     # Step 1: from load_data import load_categorical_more_data
     # Step 2: affordableRent_start,social_housing_start,intermediate_start,total_affordable_start,affordable_complete,social_complete,intermediate_complete,total_affordable_complete = load_categorical_more_data()
     
- #   workbook = openpyxl.load_workbook('Data/all_in_one_Categorical_imputed.xlsx')
-   # categorical_data = pd.DataFrame(workbook['Sheet1'].values)
-  #  categorical_data.columns = list(categorical_data.iloc[0])
-    #categorical_data = categorical_data.drop(labels=0, axis=0)
+    workbook = openpyxl.load_workbook('Data/all_in_one_Categorical_data_processed.xlsx')
+    categorical_data = pd.DataFrame(workbook['removed_unwanted_cells'].values)
+    categorical_data.columns = list(categorical_data.iloc[0])
+    categorical_data = categorical_data.drop(labels=0, axis=0)
     
-    #a#ffordableRent_start = categorical_data['Affordable_Rent(Starts_on_Site)']
-    #social_housing_start = categorical_data['Social_Rent_(Starts_on_Site)']
-    #intermediate_start = categorical_data['Intermediate_Rent_(Starts_on_Site)']
-    #total_affordable_start = categorical_data['Total_Affordable_(Starts_on_Site)']
-    #affordable_complete = categorical_data['Affordable_Rent_(Completions)']
-    #social_complete = categorical_data['Social_Rent_(Completions)']
-    #intermediate_complete = categorical_data['Intermediate_Rent_(Completions)']
-    #total_affordable_complete = categorical_data['Total_Affordable_(Completions)']
-    #return affordableRent_start,social_housing_start,intermediate_start,total_affordable_start,affordable_complete,social_complete,intermediate_complete,total_affordable_complete
+    affordableRent_start = categorical_data['Affordable Rent (Starts on Site)']
+    social_housing_start = categorical_data['Social Rent (Starts on Site)']
+    intermediate_start = categorical_data['Intermediate Rent (Starts on Site)']
+    total_affordable_start = categorical_data['Total Affordable (Starts on Site)']
+    affordable_complete = categorical_data['Affordable Rent (Completions)']
+    social_complete = categorical_data['Social Rent (Completions)']
+    intermediate_complete = categorical_data['Intermediate Rent (Completions)']
+    total_affordable_complete = categorical_data['Total Affordable (Completions)']
+    return affordableRent_start,social_housing_start,intermediate_start,total_affordable_start,affordable_complete,social_complete,intermediate_complete,total_affordable_complete
