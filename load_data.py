@@ -6,7 +6,7 @@ def load_council_tax_data():
     # Open the Council tax data set
     workbook = openpyxl.load_workbook('Data/ENGLAND_council_tax_band_properties.xlsx')
     
-    # read columns that contains the lastest property counts for all bands (2021's) and administrative area names in England.
+    # read columns that contains the lastest property counts for all bands (2020's) and administrative area names in England.
     council_tax_band = workbook['CTSOP4.0']
     council_tax_band = pd.DataFrame(council_tax_band.values)
     council_tax_band = council_tax_band.drop(labels=range(0,5), axis=0)
@@ -89,7 +89,7 @@ def load_time_series_data():
 def load_categorical_data():
     # How to use?
     # Step 1: from load_data import load_categorical_data
-    # Step 2: categorical_data,local_authority_name,total_duty_owed,total_population_in_households,prevention_duty_owed,relief_duty_owed,support_need_homeless,no_longer_homeless,homeless_real_value,categorical_waiting_list_size,social_housing_lettings_2021,band_A_B_properties,band_C_D_properties,band_E_F_properties,band_G_H_properties,count_median_price_houses,count_median_earning_gross,categorical_median_afforability_ratio,count_lower_quatile_price_houses,count_lower_quatile_earning_gross,categorical_lower_quatile_afforability_ratio = load_categorical_data()
+    # Step 2: categorical_data,local_authority_name,total_duty_owed,total_population_in_households,prevention_duty_owed,relief_duty_owed,support_need_homeless,no_longer_homeless,homeless_real_value,categorical_waiting_list_size,social_housing_lettings_2020,band_A_B_properties,band_C_D_properties,band_E_F_properties,band_G_H_properties,count_median_price_houses,count_median_earning_gross,categorical_median_afforability_ratio,count_lower_quatile_price_houses,count_lower_quatile_earning_gross,categorical_lower_quatile_afforability_ratio = load_categorical_data()
     workbook = openpyxl.load_workbook('Data/all_in_one_Categorical_imputed.xlsx')
     categorical_data = pd.DataFrame(workbook['Sheet1'].values)
     categorical_data.columns = list(categorical_data.iloc[0])
@@ -107,8 +107,8 @@ def load_categorical_data():
     homeless_real_value = categorical_data['Homeless_(including_intentionally_homeless)']#########################_Homeless Real value
     ## Training target Major
     
-    categorical_waiting_list_size = categorical_data['Size_of_social_housing_waiting_list_2021']
-    social_housing_lettings_2021 = categorical_data['2021_Total_Lettings']
+    categorical_waiting_list_size = categorical_data['Size_of_social_housing_waiting_list_2020']
+    social_housing_lettings_2020 = categorical_data['2020_Total_Lettings']
     band_A_B_properties = categorical_data['A_B_property_counts']
     band_C_D_properties = categorical_data['C_D_property_counts']
     band_E_F_properties = categorical_data['E_F_property_counts']
@@ -120,7 +120,7 @@ def load_categorical_data():
     count_lower_quatile_earning_gross = categorical_data['lower_quatile_earning_2020']
     categorical_lower_quatile_afforability_ratio = categorical_data['ratio_by_lower_quatile_2020']
     
-    return categorical_data,local_authority_name,total_duty_owed,total_population_in_households,prevention_duty_owed,relief_duty_owed,support_need_homeless,no_longer_homeless,homeless_real_value,categorical_waiting_list_size,social_housing_lettings_2021,band_A_B_properties,band_C_D_properties,band_E_F_properties,band_G_H_properties,count_median_price_houses,count_median_earning_gross,categorical_median_afforability_ratio,count_lower_quatile_price_houses,count_lower_quatile_earning_gross,categorical_lower_quatile_afforability_ratio
+    return categorical_data,local_authority_name,total_duty_owed,total_population_in_households,prevention_duty_owed,relief_duty_owed,support_need_homeless,no_longer_homeless,homeless_real_value,categorical_waiting_list_size,social_housing_lettings_2020,band_A_B_properties,band_C_D_properties,band_E_F_properties,band_G_H_properties,count_median_price_houses,count_median_earning_gross,categorical_median_afforability_ratio,count_lower_quatile_price_houses,count_lower_quatile_earning_gross,categorical_lower_quatile_afforability_ratio
 
 #def load_categorical_more_data():
     # How to use?
