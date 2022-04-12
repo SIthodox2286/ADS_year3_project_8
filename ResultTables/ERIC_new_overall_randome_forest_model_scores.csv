@@ -1,27 +1,22 @@
-feature,RF Importance
-Social_Rent(Completions),6.776060812490994
-Market(Starts_on_Site),6.43808738027597
-Social_Rent_(Starts_on_Site),6.347448589119937
-median_houses_2020,22.895640867857928
-E_F_property_counts,27.391409169043765
-lower_quatile_houses_2020,23.651059404477227
-G_H_property_counts,29.427549267207873
-ratio_by_medians_2020,32.223296092771015
-Market(Completions),23.03293517393972
-ratio_by_lower_quatile_2020,29.026322316544533
-Total(Starts_on_Site),40.88548629191037
-Total_Affordable(Starts_on_Site),37.713960379684984
-Affordable_Rent(Starts_on_Site),38.28335020447631
-A_B_property_counts,43.66505144817512
-Total_Affordable(Completions),36.49349342327287
-Affordable_Rent(Completions),37.52820148774324
-median_earning_2020,32.00380607487387
-lower_quatile_earning_2020,29.43803858547305
-Size_of_social_housing_waiting_list_2020,39.25418828554776
-C_D_property_counts,51.63626696493264
-2020_Total_Lettings,43.54864345794255
-Homeless_(including_intentionally_homeless),59.401285827543376
-Affordable_Home_Ownership(Starts_on_Site),66.64894530591509
-Affordable_Home_Ownership(Completions),53.16004986734617
-Total(Completions),67.3596973269756
-Number_of_households_in_area4(000s),115.76972599445807
+,RF Importance
+Completed Social Rent Affordable Housing,9.56087497333313
+Starting Market Supplied Affordable Housing,8.428610001452228
+Starting Social Rent Affordable Housing,8.694354867507023
+Median Local House Prices,29.127701388796066
+Number of Houses Valued from £88k to £160k by the Council Tax Scheme,36.26900836209189
+Lower Quartile Local House Prices,30.719704061395564
+Median Income and House Prices based Housing Affordablity Ratio,42.662207785409755
+Lower Quartile Income and House Prices based Housing Affordablity Ratio,37.704616056846206
+Number of Houses Valued Over £160k by the Council Tax Scheme,37.28862405372879
+Completed Market Supplied Affordable Housing,33.185005824347726
+Lower Quartile Local Household Annual Income,37.49530757402447
+Starting Affordable Rent Housing,52.049269309975955
+Number of Houses Valued from £0k to £52k by the Council Tax Scheme,55.099271920022964
+Median Local Household Annual Income,41.57686131186321
+Competed Affordable Rent Housing,53.28709359607178
+Size of the social housing waiting list by 2020,50.16288291377154
+Confirmed Number of Social Housing Let to Households by 2020,55.702321325662034
+Number of Houses Valued from £52k to £88k by the Council Tax Scheme,66.90038889270504
+Starting Affordable Home Ownership Houses,86.8447287706263
+Competed Affordable Home Ownership Houses,81.71633500620753
+Number of Households Recorded in Each Local Authority Council,145.52483200416083
